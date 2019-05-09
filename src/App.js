@@ -1,26 +1,98 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Product from './components/Product'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  onClick(){
+    console.log('Day la app');
+  }
+  render() {
+    var products = [
+                        {    id:1,
+                            price : 15000000,
+                            name : 'Iphone 6',
+                            image : 'http://onewaymobile.vn/wp-content/uploads/2018/02/ipx-like-new.png',
+                            status :true
+                        },
+                        {    id:2,
+                            name : 'Iphone 7',
+                            price : 15000000,
+                            image : 'http://onewaymobile.vn/wp-content/uploads/2018/02/ipx-like-new.png',
+                            status :true
+                        },
+                        {    id:3,
+                            name : 'Iphone 8',
+                            price : 15000000,
+                            image : 'http://onewaymobile.vn/wp-content/uploads/2018/02/ipx-like-new.png',
+                            status :true
+                        },
+                        {    id:4,
+                            name : 'Iphone 8',
+                            price : 15000000,
+                            image : 'http://onewaymobile.vn/wp-content/uploads/2018/02/ipx-like-new.png',
+                            status :true
+                        },
+                        {    id:5,
+                            name : 'Iphone 8',
+                            price : 15000000,
+                            image : 'http://onewaymobile.vn/wp-content/uploads/2018/02/ipx-like-new.png',
+                            status :true
+                        },
+                        {    id:6,
+                            name : 'Iphone 8',
+                            price : 15000000,
+                            image : 'http://onewaymobile.vn/wp-content/uploads/2018/02/ipx-like-new.png',
+                            status :true
+                        },
+
+                   ];
+ let elements =products.map((product,index) => {
+      let result ='';
+      if (product.status){
+        result = <Product
+                   key={product.id}
+                   price= {product.price}
+                   image= {product.image}
+                   >
+                   {product.name}
+                   </Product>
+      }
+        return result;
+
+      });
+
+  
+      return (
+        <div>
+             <nav className="navbar navbar-inverse">
+              <div className="container-fluid">
+                <a className="navbar-brand" href="google.com">Title</a>
+                <ul className="nav navbar-nav">
+                  <li className="active">
+                    <a href="google.com">Home</a>
+                  </li>
+                  <li>
+                    <a href="google.com">Link</a>
+                  </li>
+                </ul>
+              </div>
+              </nav>
+             <div className="container-fluid">
+             <div className="row">
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+               {elements}
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+           
+              </div>
+
+              
+             </div>
+             </div>
+             </div>
+        </div>
+
+        );
+  }
 }
 
 export default App;
